@@ -105,13 +105,13 @@ const arcticAuthenticate = async (appID, callbackURL) => {
 
     const available = await arcticExtensionAvailable();
     if(!available) {
-        redirect(serverAddress + "/login?app=" + appID + "&redirect=" + callbackURL);
+        redirect(serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL);
         return;
     };
     
     const result = await triggerEvent("arctic-authenticate", { appID });
     if(result.error != false) {
-        redirect(serverAddress + "/login?app=" + appID + "&redirect=" + callbackURL)
+        redirect(serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL)
         return;
     };
     redirect(callbackURL + "?authToken=" + result.authToken);
