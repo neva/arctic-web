@@ -117,3 +117,14 @@ const arcticAuthenticate = async (appID, callbackURL) => {
     redirect(callbackURL + "?authToken=" + result.authToken);
 
 }
+const arcticBackgroundAuthentification = async (appID) => {
+
+    const available = await arcticExtensionAvailable();
+    if(!available) return {
+        "error": true
+    };
+
+    const result = await triggerEvent("arctic-authenticate", { appID })
+    return result;
+
+}
