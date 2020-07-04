@@ -40,54 +40,6 @@ const triggerEvent = (eventName, data) => {
     })
 }
 
-const arcticAddUser = async (userAccessToken) =>  {
-
-    const available = await arcticExtensionAvailable();
-    if(!available) return;
-
-    const response = await triggerEvent("arctic-extension-add-user", { userAccessToken })
-    return response;
-
-}
-const arcticAuthenticateUser = async (appID, callbackURL) => {
-
-    const response = await triggerEvent("arctic-authenticate", {
-        appID,
-        callbackURL
-    });
-    return response;
-
-}
-const getAuthTokenFromExtension = async (appID) => {
-
-    const response = await triggerEvent("arctic-get-authToken", {
-        appID
-    })
-    return response.authToken;
-
-}
-const arcticLogin = async (appID, callbackURL) => {
-
-    const available = await arcticExtensionAvailable();
-    if(!available) redirect(serverAddress + "/login?app=" + appID + "&redirect=" + callbackURL);
-
-    const response = await triggerEvent("arctic-check-if-user-is-authenticated", { appID })
-    console.log("check-if-user-authenticated:", response);
-    if(!response.isAuthenticated) {
-        console.log("afaf")
-        const response = await triggerEvent("arctic-authenticate", {
-            appID,
-            callbackURL
-        })
-        console.log("arctic-authenticate:", response);
-        redirect(callbackURL + "?authToken=" + response.authToken);
-        return;
-    }
-    const authTokenResponse = await triggerEvent("arctic-get-authToken", { appID });
-    redirect(callbackURL + "?authToken=" + authTokenResponse.authToken);
-
-}
-
 const arcticExtensionAddUser = async (userAccessToken) => {
 
     const available = await arcticExtensionAvailable();
