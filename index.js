@@ -1,4 +1,4 @@
-var serverAddress = "http://localhost:3000";
+var serverAddress = "http://127.0.0.1:3000";
 var arcticAvailable = false;
 
 document.addEventListener("arcticAvailable", (e) => {
