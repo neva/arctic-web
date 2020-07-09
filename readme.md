@@ -15,3 +15,5 @@ To Install arctic-web, simply add this line of code to your HEAD.
 It's important to import this script tag before your other scripts otherwise your scripts cannot access `arctic`.
 ## Authentication
 To authenticate a user simply call `arctic.authenticate(app, callback)`, where `app` is your appID and `callback` is the URL the user should be redirected to when he's authenticated. The URL should led to an express app in which [`arctic-node`](https://github.com/neva/arctic-node "Arctic Node") is installed, so that the user information can be parsed
+## Example
+You can see an example of a simple Front-End that allows for arctic authentication [here](https://github.com/neva/arctic-web/tree/master/Example/)
