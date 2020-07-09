@@ -13,3 +13,5 @@ To Install arctic-web, simply add this line of code to your HEAD.
 <script src="https://cdn.jsdelivr.net/npm/arcticweb@latest/index.js"></script>
 ```
 It's important to import this script tag before your other scripts otherwise your scripts cannot access `arctic`.
+## Authentication
+To authenticate a user simply call `arctic.authenticate(app, callback)`, where `app` is your appID and `callback` is the URL the user should be redirected to when he is authenticated. 
