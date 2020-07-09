@@ -40,7 +40,7 @@ const triggerEvent = (eventName, data) => {
     })
 }
 
-const arcticExtensionAddUser = async (userAccessToken) => {
+const extensionAddUser = async (userAccessToken) => {
 
     const available = await arcticExtensionAvailable();
     if(!available) return {
@@ -53,7 +53,6 @@ const arcticExtensionAddUser = async (userAccessToken) => {
     return result;
 
 }
-
 const authenticate = async (appID, callbackURL) => {
 
     const available = await arcticExtensionAvailable();
@@ -91,5 +90,6 @@ const addSwitchUserEvent = (func) => {
 const arctic = {
     addSwitchUserEvent,
     backgroundAuthentification,
-    authenticate
+    authenticate,
+    extensionAddUser
 }
