@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/neva/ArcticWeb/issues"
   },
-  "homepage": "https://github.com/neva/ArcticWeb#readme"
+  "homepage": "https://github.com/neva/ArcticWeb#readme",
+  "files": [
+    "index.js"
+  ]
 }
