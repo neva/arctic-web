@@ -53,7 +53,8 @@ const arcticExtensionAddUser = async (userAccessToken) => {
     return result;
 
 }
-const arcticAuthenticate = async (appID, callbackURL) => {
+
+const authenticate = async (appID, callbackURL) => {
 
     const available = await arcticExtensionAvailable();
     if(!available) {
@@ -69,7 +70,7 @@ const arcticAuthenticate = async (appID, callbackURL) => {
     redirect(callbackURL + "?authToken=" + result.authToken);
 
 }
-const arcticBackgroundAuthentification = async (appID) => {
+const backgroundAuthentification = async (appID) => {
 
     const available = await arcticExtensionAvailable();
     if(!available) return {
@@ -80,9 +81,7 @@ const arcticBackgroundAuthentification = async (appID) => {
     return result;
 
 }
-
 const addSwitchUserEvent = (func) => {
-    console.log("adding switch user event ...");
     document.addEventListener("arcticSwitchUser", (event) => {
         func(event.detail);
     })
@@ -90,5 +89,7 @@ const addSwitchUserEvent = (func) => {
 
 // exposed functions
 const arctic = {
-    addSwitchUserEvent
+    addSwitchUserEvent,
+    backgroundAuthentification,
+    authenticate
 }
