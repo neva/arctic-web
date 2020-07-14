@@ -67,7 +67,7 @@ const authenticate = async (appID, callbackURL) => {
         window.location.href = serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL;
         return;
     };
-    window.location.href = (callbackURL + "?authToken=" + result.authToken);
+    window.location.href = callbackURL + "?authToken=" + result.authToken;
 
 }
 const backgroundAuthentification = async (appID) => {
