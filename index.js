@@ -1,5 +1,6 @@
 var serverAddress = "http://localhost:3000";
 
+// arcticExtensionAvailable
 var arcticExtensionAvailableState = false;
 document.addEventListener("arcticAvailable", () => arcticExtensionAvailableState = true );
 const arcticExtensionAvailable = () => {
@@ -18,9 +19,9 @@ const arcticExtensionAvailable = () => {
     })
 }
 
+// DOM interaction
 var responseEvents = []
 document.addEventListener("arcticResponse", (response) => responseEvents = responseEvents.filter((func) => func(response.detail)));
-
 const triggerEvent = (eventName, data) => {
     return new Promise((resolve) => {
         const responseID = [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
