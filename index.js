@@ -16,7 +16,6 @@ const arcticExtensionAvailable = () => {
         }, 100)
     })
 }
-var redirect = (url) => window.location.href = url;
 
 var responseEvents = []
 document.addEventListener("arcticResponse", (response) => responseEvents = responseEvents.filter((func) => func(response.detail)));
@@ -57,16 +56,16 @@ const authenticate = async (appID, callbackURL) => {
 
     const available = await arcticExtensionAvailable();
     if(!available) {
-        redirect(serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL);
+        window.location.href = serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL;
         return;
     };
     
     const result = await triggerEvent("arctic-authenticate", { appID });
     if(result.error != false) {
-        redirect(serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL)
+        window.location.href = serverAddress + "/login?action=authenticate&app=" + appID + "&redirect=" + callbackURL;
         return;
     };
-    redirect(callbackURL + "?authToken=" + result.authToken);
+    window.location.href = (callbackURL + "?authToken=" + result.authToken);
 
 }
 const backgroundAuthentification = async (appID) => {
