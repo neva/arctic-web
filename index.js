@@ -1,14 +1,14 @@
 var serverAddress = "http://localhost:3000";
-var arcticAvailable = false;
+var arcticExtensionAvailableState = false;
 
 document.addEventListener("arcticAvailable", (e) => {
-    arcticAvailable = true
+    arcticExtensionAvailableState = true
 });
 const arcticExtensionAvailable = () => {
     return new Promise((resolve) => {
-        if(arcticAvailable) resolve(true);
+        if(arcticExtensionAvailableState) resolve(true);
         document.addEventListener("arcticAvailable", (e) => {
-            arcticAvailable = true
+            arcticExtensionAvailableState = true
             resolve(true);
         });
         setTimeout(() => {
