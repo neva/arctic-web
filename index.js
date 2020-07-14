@@ -81,15 +81,9 @@ const backgroundAuthentification = async (appID) => {
     return result;
 
 }
-const addSwitchUserEvent = (func) => {
-    document.addEventListener("arcticSwitchUser", (event) => {
-        func(event.detail);
-    })
-}
 
 // exposed functions
 const arctic = {
-    addSwitchUserEvent,
     backgroundAuthentification,
     authenticate,
     extensionAddUser
