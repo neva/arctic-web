@@ -50,7 +50,6 @@ const extensionAddUser = async (userAccessToken) => {
     }
 
     const result = await triggerEvent("arctic-extension-add-user", { userAccessToken })
-    console.log("Result:", result);
     return result;
 
 }
