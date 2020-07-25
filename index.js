@@ -1,4 +1,4 @@
-var serverAddress = "http://46.101.113.205:3000";
+var serverAddress = "http://46.101.113.205:80";
 
 // arcticExtensionAvailable
 var arcticExtensionAvailableState = false;
