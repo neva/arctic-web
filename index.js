@@ -1,4 +1,4 @@
-var serverAddress = "http://arcticxyz.ddns.net/";
+var serverAddress = "http://arcticxyz.ddns.net";
 
 // arcticExtensionAvailable
 var arcticExtensionAvailableState = false;
